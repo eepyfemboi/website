@@ -16,7 +16,7 @@
         <meta content="#0ecf1e" data-react-helmet="true" name="theme-color" />
         <meta content="Command List" property="og:title" />
         <meta content="The full list of commands for Sleepy's Pet" property="og:description">
-        <title>Command Information</title>
+        <title>Command List</title>
         <link rel="stylesheet" href="site_style.css">
         <script src="display_command_script.js"></script>
         <style></style>
@@ -65,7 +65,7 @@
                     const id = uniqueResults[i];
                     const resultItem = document.createElement("a");
                     const resultButton = document.createElement("button");
-                    resultItem.href = `commandlist#${id}`
+                    resultItem.href = `commands#${id}`
                     resultButton.innerHTML = `<strong>${id}</strong>`;
                     resultButton.classList.add("searchResultItem");
                     resultButton.addEventListener("click", function() {
@@ -126,7 +126,7 @@
         </div>
 
         <script>
-            fetch(`https://sleepys.pet/api/commandlist`)
+            fetch(`api/commandlist`)
                 .then(response => response.json())
                 .then(data => {
                     data.commands.forEach(command => {
