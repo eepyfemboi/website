@@ -34,11 +34,29 @@ a {
 nav {
     background-color: #2b2f37;
     padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+input {
+    background-color: #05d628a8;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+input:hover {
+    background-color: #068f1ca8;
 }
 
 button {
-    background-color: #007bff;
-    color: #1e2124;
+    background-color: #00ff2aa8;
+    color: #000000;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -48,8 +66,59 @@ button {
 
 button:hover {
     background-color: #0151a7;
-    box-shadow: #001933;
+    box-shadow: #000000;
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+.search1 {
+    display: grid;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    align-tracks: center;
+    justify-tracks: center;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.search {
+    position: static;
+    display: grid;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    align-tracks: center;
+    justify-tracks: center;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.searchResultItem {
+    cursor: pointer;
+    padding: 5px;
+    margin: 2px;
+    /*background-color: #f0f0f0;*/
+    border: 1px solid #08eeb5;
+    border-radius: 3px;
+    color: #741e8f;
+}
+
+/*
+.searchResultItem:hover {
+    background-color: #e0e0e0;
+}
+*/
 
 .command_info_wrapper {
     display: grid;
@@ -57,13 +126,15 @@ button:hover {
     align-items: center;
     align-content: center;
     align-tracks: center;
+    justify-tracks: center;
     justify-self: center;
     justify-items: center;
     justify-content: center;
-    justify-tracks: center;
 }
 
 .command-info {
+    position: relative;
+    width: 100%;
     background-color: #464747;
     margin: 10px;
     padding: 30px;
@@ -89,6 +160,26 @@ button:hover {
     margin: 25px;
     padding: 1px;
     border-radius: 16px;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: #00ff2aa8;
+    padding: 5px;
+}
+.toggle-button:hover {
+    background-color: #06921d;
+    box-shadow: #001933;
+}
+
+.toggle-button img {
+    width: 20px;
+    height: 20px;
 }
 
 .mobileShow {display: none;}

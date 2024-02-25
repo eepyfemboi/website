@@ -9,6 +9,7 @@
         <meta content="Command details for a command on Sleepy's Pet" property="og:description">
         <title>Command Information</title>
         <link rel="stylesheet" href="site_style.css">
+        <script src="display_command_script.js"></script>
         <style></style>
     </head>
     <body>
@@ -26,82 +27,11 @@
         <script>
             const urlParams = new URLSearchParams(window.location.search);
             const commandName = urlParams.get('c');
-    
+
             fetch(`https://sleepys.pet/api/command?c=${commandName}`)
                 .then(response => response.json())
                 .then(data => {
-                    const commandInfoDiv = document.getElementById('command-info');
-                    commandInfoDiv.className = 'command-info'
-
-                    const nameParagraph = document.createElement('div');
-                    nameParagraph.className = 'command_name_div';
-                    nameParagraph.innerHTML = `<h1>'${data.name}'</h1>`;
-                    commandInfoDiv.appendChild(nameParagraph);
-    
-                    const descriptionParagraph = document.createElement('div');
-                    descriptionParagraph.className = 'command_data_div';
-                    descriptionParagraph.innerHTML = `<h2>Description:</h2><p>${data.description}</p>`;
-                    commandInfoDiv.appendChild(descriptionParagraph);
-    
-                    const argsList = document.createElement('div');
-                    argsList.className = 'command_data_div';
-                    argsList.innerHTML = '<h2>Arguments:</h2>';
-                    if (data.args && data.args.length > 0) {
-                        data.args.forEach(arg => {
-                            const argItem = document.createElement('div');
-                            argItem.className = 'args_list_item'
-                            argItem.innerHTML = `<h3>'${arg.name}':</h3><p><strong>Description:</strong><br>${arg.description}<br><br><strong>Type:</strong> ${arg.type}<br><strong>Required:</strong> ${arg.required}<br><strong>Default:</strong> ${arg.default}</p>`;
-                            argsList.appendChild(argItem);
-                        });
-                    } else {
-                        const argItem = document.createElement('div');
-                        argItem.className = 'args_list_item'
-                        argItem.innerHTML = `There are no arguments`;
-                        argsList.appendChild(argItem);
-                    }
-                    commandInfoDiv.appendChild(argsList);
-    
-                    const nsfw = document.createElement('div');
-                    nsfw.className = 'command_data_div';
-                    nsfw.innerHTML = `<p><strong>NSFW:</strong> ${data.nsfw}</p>`;
-                    commandInfoDiv.appendChild(nsfw);
-    
-                    const restricted = document.createElement('div');
-                    restricted.className = 'command_data_div';
-                    restricted.innerHTML = `<p><strong>Restricted:</strong> ${data.restricted}</p>`;
-                    commandInfoDiv.appendChild(restricted);
-    
-                    const stable = document.createElement('div');
-                    stable.className = 'command_data_div';
-                    stable.innerHTML = `<p><strong>Stable:</strong> ${data.stable}</p>`;
-                    commandInfoDiv.appendChild(stable);
-    
-                    const aliases = document.createElement('div');
-                    aliases.className = 'command_data_div';
-                    if (data.aliases && data.aliases.length > 0 && data.aliases[0] !== '') {
-                        aliases.innerHTML = `<p><strong>Ctx Aliases:</strong> ${data.aliases.join(', ')}</p>`;
-                    } else {
-                        aliases.innerHTML = '<p><strong>Ctx Aliases:</strong> None</p>'
-                    }
-                    commandInfoDiv.appendChild(aliases);
-    
-                    const requiredPermissionsList = document.createElement('div');
-                    requiredPermissionsList.className = 'command_data_div';
-                    if (data.required_permissions && data.required_permissions.length > 0) {
-                        requiredPermissionsList.innerHTML = `<p><strong>Required Permissions:</strong> ${data.required_permissions.join(', ')}</p>`;
-                    } else {
-                        requiredPermissionsList.innerHTML = `<p><strong>Required Permissions:</strong> None</p>`;
-                    }
-                    commandInfoDiv.appendChild(requiredPermissionsList);
-    
-                    const requiredBotPermissionsList = document.createElement('p');
-                    requiredBotPermissionsList.className = 'command_data_div';
-                    if (data.required_bot_permissions && data.required_bot_permissions.length > 0) {
-                        requiredBotPermissionsList.innerHTML = `<p><strong>Required Bot Permissions:</strong> ${data.required_bot_permissions.join(', ')}</p>`;
-                    } else {
-                        requiredBotPermissionsList.innerHTML = `<p><strong>Required Bot Permissions:</strong>: None</p>`;
-                    }
-                    commandInfoDiv.appendChild(requiredBotPermissionsList);
+                    display_command(data=data, create_new=false);
                 })
                 .catch(error => {
                     console.error('Error fetching command information:', error);
