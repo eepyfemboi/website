@@ -12,6 +12,21 @@ h1 {
     margin-bottom: 20px;
 }
 
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+h4 {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
 a {
     color: #5c7eb1;
 }
@@ -36,6 +51,46 @@ button:hover {
     box-shadow: #001933;
 }
 
+.command_info_wrapper {
+    display: grid;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    align-tracks: center;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    justify-tracks: center;
+}
+
+.command-info {
+    background-color: #464747;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.command_name_div {
+    background-color: #3133358a;
+    margin: 7px;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.command_data_div {
+    background-color: #303233a8;
+    margin: 6px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.args_list_item {
+    background-color: #212324c9;
+    margin: 25px;
+    padding: 1px;
+    border-radius: 16px;
+}
+
 .mobileShow {display: none;}
 @media only screen
     and (min-device-width : 320px)
@@ -48,3 +103,4 @@ button:hover {
     and (max-device-width : 480px){
     .mobileHide { display: none;}
 }
+
