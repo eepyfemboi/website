@@ -5,6 +5,41 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background: linear-gradient(102deg, #12d511, #bd11d9, #aaff00);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+.css-selector {
+    background: linear-gradient(102deg, #12d511, #bd11d9, #aaff00);
+    background-size: 600% 600%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:84% 0%}
+    50%{background-position:17% 100%}
+    100%{background-position:84% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:84% 0%}
+    50%{background-position:17% 100%}
+    100%{background-position:84% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:84% 0%}
+    50%{background-position:17% 100%}
+    100%{background-position:84% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:84% 0%}
+    50%{background-position:17% 100%}
+    100%{background-position:84% 0%}
 }
 
 h1 {
@@ -121,6 +156,84 @@ button:hover {
 }
 */
 
+
+.main_info {
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    align-tracks: center;
+    justify-tracks: center;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+    display: grid;
+    max-width: 100%;
+    margin-left: 17%;
+    margin-right: 17%;
+    padding: 3%;
+    background-color: #46474770;
+    border-radius:50px;
+    background-image:url('main_div_background3.jpg');
+    /*background-position:0%;*/
+    background-repeat:no-repeat;
+    background-repeat:round;
+}
+
+.main_name_div {
+    background-color: #31333556;
+    margin-top: 7px;
+    padding: 7px;
+    border-radius: 20px;
+}
+
+.main_info_description {
+    max-width: 60%;
+    border-radius:40px;
+    background-color: #3032333f;
+    margin-bottom: 4px;
+    margin-right: 5px;
+}
+
+.feature_info_wrapper {
+    display:grid;
+    max-width: 70%;
+    /*height:100%;*/
+    margin: 15px;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    align-tracks: center;
+    justify-tracks: center;
+    justify-self: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.feature_info {
+    position: relative;
+    /*max-width: 50%;*/
+    /*height: 50%;
+    height: 90%;*/
+    background-color: #4647476b;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 30px;
+}
+
+.feature_name_div {
+    background-color: #3133358a;
+    margin: 7px;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+.feature_data_div {
+    background-color: #303233a8;
+    margin: 6px;
+    padding: 3px;
+    border-radius: 10px;
+}
+
 .command_info_wrapper {
     display: grid;
     align-self: center;
@@ -136,7 +249,7 @@ button:hover {
 .command-info {
     position: relative;
     width: 90%;
-    background-color: #464747;
+    background-color: #4647476b;
     margin: 5px;
     padding: 20px;
     border-radius: 30px;
