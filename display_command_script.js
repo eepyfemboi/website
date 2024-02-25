@@ -47,7 +47,7 @@ function display_command(data, create_new) {
 
     nameParagraph = document.createElement('div');
     nameParagraph.className = 'command_name_div';
-    nameParagraph.innerHTML = `<h1>'${data.name}'</h1>`;
+    nameParagraph.innerHTML = `<h1>${data.name}</h1>`;
     commandInfoDiv1.appendChild(nameParagraph);
 
     const descriptionParagraph = document.createElement('div');
@@ -62,7 +62,7 @@ function display_command(data, create_new) {
         data.args.forEach(arg => {
             const argItem = document.createElement('div');
             argItem.className = 'args_list_item'
-            argItem.innerHTML = `<h3>'${arg.name}':</h3><p><strong>Description:</strong><br>${arg.description}<br><br><strong>Type:</strong> ${arg.type}<br><strong>Required:</strong> ${arg.required}<br><strong>Default:</strong> ${arg.default}</p>`;
+            argItem.innerHTML = `<h3>${arg.name}:</h3><p><strong>Description:</strong><br>${arg.description}<br><br><strong>Type:</strong> ${arg.type}<br><strong>Required:</strong> ${arg.required}<br><strong>Default:</strong> ${arg.default}</p>`;
             argsList.appendChild(argItem);
         });
     } else {
@@ -124,9 +124,9 @@ function display_command(data, create_new) {
         //const content = commandInfoDiv1.querySelector('.command_data_div');
         commandInfoDiv.style.display = commandInfoDiv.style.display === 'none' ? 'block' : 'none';
         const value = commandInfoDiv.style.display === 'none';
-        commandInfoDiv1.style.margin = commandInfoDiv.style.display === 'none' ? '1px' : '10px';
-        commandInfoDiv1.style.padding = commandInfoDiv.style.display === 'none' ? '3px' : '30px';
-        nameParagraph.innerHTML = commandInfoDiv.style.display === 'none' ? `<p style="margin:5px">'${data.name}'</p>` : `<h1>'${data.name}'</h1>`;
+        commandInfoDiv1.style.margin = commandInfoDiv.style.display === 'none' ? '1px' : '5px';
+        commandInfoDiv1.style.padding = commandInfoDiv.style.display === 'none' ? '3px' : '20px';
+        nameParagraph.innerHTML = commandInfoDiv.style.display === 'none' ? `<p style="margin:5px">${data.name}</p>` : `<h1>${data.name}</h1>`;
         toggleButton.getElementsByTagName('img')[0].src = commandInfoDiv.style.display === 'none' ? 'arrow-expand.svg' : 'arrow-collapse.svg';
     });
 
