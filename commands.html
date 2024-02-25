@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Sleepy's Pet" property="og:site_name" />
         <meta content="#0ecf1e" data-react-helmet="true" name="theme-color" />
-        <meta content="Command Details" property="og:title" />
-        <meta content="Command details for a command on Sleepy's Pet" property="og:description">
+        <meta content="Command List" property="og:title" />
+        <meta content="The full list of commands for Sleepy's Pet" property="og:description">
         <title>Command Information</title>
         <link rel="stylesheet" href="site_style.css">
         <script src="display_command_script.js"></script>
@@ -40,6 +40,7 @@
                 }
             }
             function search() {
+                const searchInput = document.getElementById("searchInput");
                 const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
                 const matchedAliases = Object.keys(aliases).filter(key => key.toLowerCase().includes(searchTerm)).map(key => aliases[key]);
                 const matchedIds = element_ids.filter(id => id.toLowerCase().includes(searchTerm));
@@ -63,6 +64,7 @@
                         if (element) {
                             element.scrollIntoView({ behavior: "smooth" });
                         }
+                        searchInput.value = "";
                     });
                     resultItem.appendChild(resultButton);
                     searchResultsDiv.appendChild(resultItem);
@@ -75,6 +77,7 @@
 
                 if (event.target !== searchInput && event.target.parentNode !== searchResultsDiv) {
                     searchResultsDiv.innerHTML = "";
+
                 }
             });
             window.onhashchange = function() {
@@ -103,13 +106,12 @@
         <div id="top"></div>
         <nav>
             <a href="https://discord.com/application-directory/1093032431298285598"><button>Add me</button></a>
-            <a href="https://ezmusic.net"><button>Downloaded Music</button></a>
+            <!--<a href="https://ezmusic.net"><button>Downloaded Music</button></a>-->
             <a href="https://top.gg/bot/1093032431298285598/vote"><button>Vote for me</button></a>
             <a href="https://top.gg/bot/1093032431298285598#reviews"><button>Review me</button></a>
-
             <input type="text" id="searchInput" oninput="search()" placeholder="Search commands...">
             <div id="searchResults"></div>
-        </nav>
+        </nav><br><br>
         <h1>Command Information</h1>
         <div class="command_info_wrapper" id="command_info_wrapper">
         </div>

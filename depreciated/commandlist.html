@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Sleepy's Pet" property="og:site_name" />
+        <meta content="#0ecf1e" data-react-helmet="true" name="theme-color" />
+        <meta content="Command List" property="og:title" />
+        <meta content="The full list of commands for Sleepy's Pet" property="og:description">
+        <title>Command Information</title>
+        <link rel="stylesheet" href="site_style.css">
+        <script src="display_command_script.js"></script>
+        <style></style>
+        <script>
+            let element_ids = [];
+            let aliases = {};
+            let scrollY;
+            function search1() {
+                const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
+                const filteredIds = element_ids.filter(id => id.toLowerCase().includes(searchTerm));
+                const searchResultsDiv = document.getElementById("searchResults");
+                searchResultsDiv.innerHTML = "";
+
+                const numResultsToShow = Math.min(filteredIds.length, 15);
+                for (let i = 0; i < numResultsToShow; i++) {
+                    const id = filteredIds[i];
+                    const resultItem = document.createElement("a");
+                    const resultButton = document.createElement("button");
+                    resultItem.href = `commandlist#${id}`
+                    resultButton.innerHTML = `<strong>${id}</strong>`;
+                    resultButton.classList.add("searchResultItem");
+                    resultButton.addEventListener("click", function() {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                        }
+                    });
+                    resultItem.appendChild(resultButton);
+                    searchResultsDiv.appendChild(resultItem);
+                }
+            }
+            function search() {
+                const searchInput = document.getElementById("searchInput");
+                const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
+                const matchedAliases = Object.keys(aliases).filter(key => key.toLowerCase().includes(searchTerm)).map(key => aliases[key]);
+                const matchedIds = element_ids.filter(id => id.toLowerCase().includes(searchTerm));
+                const combinedResults = [...matchedIds, ...matchedAliases];
+
+                const uniqueResults = Array.from(new Set(combinedResults));
+
+                const searchResultsDiv = document.getElementById("searchResults");
+                searchResultsDiv.innerHTML = "";
+
+                const numResultsToShow = Math.min(uniqueResults.length, 15);
+                for (let i = 0; i < numResultsToShow; i++) {
+                    const id = uniqueResults[i];
+                    const resultItem = document.createElement("a");
+                    const resultButton = document.createElement("button");
+                    resultItem.href = `commandlist#${id}`
+                    resultButton.innerHTML = `<strong>${id}</strong>`;
+                    resultButton.classList.add("searchResultItem");
+                    resultButton.addEventListener("click", function() {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                        }
+                        searchInput.value = "";
+                    });
+                    resultItem.appendChild(resultButton);
+                    searchResultsDiv.appendChild(resultItem);
+                }
+            }
+
+            document.addEventListener("click", function(event) {
+                const searchInput = document.getElementById("searchInput");
+                const searchResultsDiv = document.getElementById("searchResults");
+
+                if (event.target !== searchInput && event.target.parentNode !== searchResultsDiv) {
+                    searchResultsDiv.innerHTML = "";
+
+                }
+            });
+            window.onhashchange = function() {
+                const hash = window.location.hash;
+
+                window.scrollTo({ top: scrollY, behavior: 'auto' })
+                setTimeout(function() {
+                    scrollY = document.documentElement.scrollTop;
+                }, 100)
+                setTimeout(function() {
+                    if (hash) {
+                        const targetElement = document.getElementById(hash.substring(1));
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }
+                }, 700);
+            };
+            window.addEventListener("scroll", function() {setTimeout(function() {
+                scrollY = document.documentElement.scrollTop;
+            }, 100)});
+
+        </script>
+    </head>
+    <body>
+        <div id="top"></div>
+        <nav>
+            <a href="https://discord.com/application-directory/1093032431298285598"><button>Add me</button></a>
+            <!--<a href="https://ezmusic.net"><button>Downloaded Music</button></a>-->
+            <a href="https://top.gg/bot/1093032431298285598/vote"><button>Vote for me</button></a>
+            <a href="https://top.gg/bot/1093032431298285598#reviews"><button>Review me</button></a>
+            <input type="text" id="searchInput" oninput="search()" placeholder="Search commands...">
+            <div id="searchResults"></div>
+        </nav><br><br>
+        <h1>Command Information</h1>
+        <div class="command_info_wrapper" id="command_info_wrapper">
+        </div>
+
+        <script>
+            fetch(`https://sleepys.pet/api/commandlist`)
+                .then(response => response.json())
+                .then(data => {
+                    data.commands.forEach(command => {
+                        display_command(command, true);
+                        element_ids.push(command.name);
+                        if (command.aliases && command.aliases.length > 0 && command.aliases[0] !== '') {
+                            command.aliases.forEach(alias => {
+                                aliases[alias] = command.name;
+                            })
+                        }
+                    });
+                    //display_command(data=data);
+                })
+                .catch(error => {
+                    console.error('Error fetching command information:', error);
+                });
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                //const searchBox = document.getElementById("search");
+                //const bounding = searchBox.getBoundingClientRect();
+                //searchPosX = bounding.left;
+                //searchPosY = bounding.top;
+                const hash = window.location.hash;
+                setTimeout(function() {
+                    if (hash) {
+                        const targetElement = document.getElementById(hash.substring(1));
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }
+                }, 700);
+                //window.addEventListener("scroll", updateFloatingElementPosition);
+                //updateFloatingElementPosition();
+            });
+        </script>
+    </body>
+</html>

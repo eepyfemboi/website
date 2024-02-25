@@ -32,7 +32,8 @@ a {
 }
 
 nav {
-    background-color: #2b2f37;
+    /*background-color: #2b2f3700;*/
+    background-color: #ffffff00;
     padding: 10px;
     position: fixed;
     top: 0;
