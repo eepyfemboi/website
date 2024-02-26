@@ -180,9 +180,9 @@ button:hover {
 } */
 
 .feature_info_wrapper {
-    display:flex;
+    display:grid;
     max-width: 70%;
-    height:100%;
+    /*height:100%;*/
     margin: 15px;
     align-self: center;
     align-items: center;
