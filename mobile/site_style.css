@@ -37,7 +37,7 @@ body {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 22px;
     margin-bottom: 20px;
 }
 
@@ -233,7 +233,7 @@ button:hover {
 
 .command-info {
     position: relative;
-    width: 100%;
+    width: 90%;
     background-color: #4647476b;
     margin: 5px;
     padding: 20px;
