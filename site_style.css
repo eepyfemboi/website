@@ -281,6 +281,17 @@ button:hover {
     height: 20px;
 }
 
+.author_txt {
+    font-size: 14px;
+    color: #e3e3e3;
+}
+
+.author_img {
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+}
+
 .mobileShow {display: none;}
 @media only screen
     and (min-device-width : 320px)
