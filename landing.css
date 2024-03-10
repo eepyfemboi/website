@@ -1,0 +1,53 @@
+@import url('site_style.css');
+
+.landing_features {
+    background-color: #2a2b2b6b;
+    margin: 2%;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.landing_features_name_div {
+    background-color: #383b3b6b;
+    margin-bottom: 1%;
+    margin-right: 27%;
+    margin-left: 27%;
+    padding-bottom: 1px;
+    max-width: 60%;
+    position: sticky;
+    border-radius: 24px;
+}
+
+.landing_features_div {
+    display: flex;
+    background-color: #4647476b;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 30px;
+    /*height: 60%;
+    width: 40%;*/
+}
+
+.landing_feature_div {
+    background-color: #4647476b;
+    height: 60%;
+    width: 40%;
+    border-radius: 18px;
+    margin: 2px;
+}
+
+.landing_feature_name_div {
+    background-color: #292b2b6b;
+    border-radius: 8px;
+    max-width: 80%;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.landing_feature_description_div {
+    background-color: #1c1f1f6b;
+    border-radius: 9px;
+    max-width: 90%;
+    margin-right: 8px;
+    margin-left: 8px;
+}

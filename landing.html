@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KLHL4JEPG0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KLHL4JEPG0');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Sleepy's Pet" property="og:site_name" />
+        <meta content="#0ecf1e" data-react-helmet="true" name="theme-color" />
+        <meta content="Sleepy's Pet" property="og:title" />
+        <meta content="The best bot for music, AutoMod, and more!" property="og:description">
+        <title>Thank you!</title>
+        <link rel="stylesheet" href="landing.css">
+        <style></style>
+    </head>
+    <body>
+        <nav>
+            <!--<img src="main_div_background4.png" alt="Sleepy's Pet" class="main_name_img" width="60px">-->
+            <a href="https://discord.com/application-directory/1093032431298285598"><button>Add me</button></a>
+            <!--<a href="https://ezmusic.net"><button>Downloaded Music</button></a>-->
+            <a href="https://top.gg/bot/1093032431298285598/vote?ref=site"><button>Vote for me</button></a>
+            <a href="https://top.gg/bot/1093032431298285598#reviews"><button>Review me</button></a>
+            <a href="commands"><button>Command List</button></a>
+        </nav><br><br><br><br><br>
+        <div style="display:grid">
+            <div>
+                <h1>Thank you for adding me to your server!</h1>
+            </div>
+            <div>
+                <h2>Why don't you check out a few of my <a href="commands">commands</a> while you're here?</h2>
+            </div>
+            <div class="guild_div">
+                <div>
+                    <h3>There might be something else here later, but we're still working on it!</h3>
+                </div>
+            </div>
+            <div class="landing_features">
+                <div class="landing_features_name_div">
+                    <h3>Here's a few of my features!</h3>
+                </div>
+                <div class="landing_features_div" display="flex">
+                    <div class="landing_feature_div">
+                        <div class="landing_feature_name_div">
+                            <h4>Ping Saving</h4>
+                        </div>
+                        <div class="landing_feature_description_div">
+                            <p>
+                                Use <a href="commands#pings">$pings</a> to recall your recent pings after you've been afk for a while!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="landing_feature_div">
+                        <div class="landing_feature_name_div">
+                            <h4>AutoMod</h4>
+                        </div>
+                        <div class="landing_feature_description_div">
+                            <p>
+                                AutoMod is enabled by default, but if you would like to disable it, simply use <a href="commands#toggle_automd">$automod</a> to turn it off!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="landing_feature_div">
+                        <div class="landing_feature_name_div">
+                            <h4>Logs</h4>
+                        </div>
+                        <div class="landing_feature_description_div">
+                            <p>
+                                To set up message logging, simply use <a href="commands#set_deleted_messages_channel">$set_deleted_<br>messages_channel</a> and choose a channel to log to!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function main() {
+                const query_string = window.location.search;
+                const base_api_url = 'api/on_join';
+                const url = base_api_url + query_string;
+                fetch(url)
+                    .then(response => respone.text)
+                    .then(data => {
+                        console.log(data); // Imma make it add a new element here later which is returned dynamically by the backend, but for now im too lazy and i just wanna get ts working so uh.. yea :3
+                    })
+            }
+            window.onload = main;
+        </script>
+        <footer>
+            <p class="author_txt">
+                Made with ♡ by <a href="https://github.com/CoC-Fire" class="author_txt"><img src="https://cdn.discordapp.com/avatars/1000729109720219778/ef0bf4ce119c44da85cacd62a58afd2f.webp?size=16" class="author_img"> Sleepy</a> and <a href="https://github.com/not-valkyrie" class="author_txt"><img src="https://cdn.discordapp.com/avatars/836014962769657896/7c0ca1cbbf5723280e8f6014de3dc2f9.webp?size=16" class="author_img"> Valkyrie</a></p>
+            </p>
+        </footer>
+    </body>
+</html>
