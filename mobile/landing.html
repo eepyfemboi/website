@@ -80,17 +80,26 @@
             </div>
         </div>
         <script>
-            function main() {
-                const query_string = window.location.search;
-                const base_api_url = 'api/on_join';
-                const url = base_api_url + query_string;
-                fetch(url)
-                    .then(response => respone.text)
-                    .then(data => {
-                        console.log(data); // Imma make it add a new element here later which is returned dynamically by the backend, but for now im too lazy and i just wanna get ts working so uh.. yea :3
-                    })
-            }
-            window.onload = main;
+            //window.onload = function() {
+            const query_string = window.location.search;
+            var query = ''
+            var uri = window.location.href.replace('#', '&').split('?')[1];
+            //if (window.location.href.includes('#')) {
+            //    uri = window.location.href.replace('#', '&').split('?')[1];
+            //} else if (window.location.href.includes('?')) {
+            //    uri = window.location.href.split('?')[1];
+            //}
+            const base_api_url = 'api/on_join?';
+            const url = base_api_url + uri
+            //console.log(url);
+            fetch(url)
+                .then(response => {
+                    return respone.text
+                })
+                .then(data => {
+                    console.log(data); // Imma make it add a new element here later which is returned dynamically by the backend, but for now im too lazy and i just wanna get ts working so uh.. yea :3
+                })
+            //}
         </script>
         <footer>
             <p class="author_txt">
